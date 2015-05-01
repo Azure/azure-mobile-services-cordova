@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved
-// AzureMobileServices - v1.2.8
+// AzureMobileServices - v2.0.30430.0-beta
 // ----------------------------------------------------------------------------
 
 (function (global) {
-	var $__fileVersion__ = '1.2.8';
+	var $__fileVersion__ = '2.0.30430.0-beta';
     /// <field name="$__modules__">
     /// Map module names to either their cached exports or a function which
     /// will define the module's exports when invoked.
