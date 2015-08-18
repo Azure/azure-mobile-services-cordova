@@ -16,30 +16,45 @@
     <dependency id="org.apache.cordova.inappbrowser"/>
 
     <platform name="windows8">
+        <js-module src="www/MobileServices.Web.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
         <js-module src="www/MobileServices.Web.js" name="AzureMobileServices">
             <runs />
         </js-module>
     </platform>
 
     <platform name="windows">
+        <js-module src="www/MobileServices.Web.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
         <js-module src="www/MobileServices.Web.js" name="AzureMobileServices">
             <runs />
         </js-module>
     </platform>
 
     <platform name="wp8">
+        <js-module src="www/MobileServices.Web.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
         <js-module src="www/MobileServices.Web.js" name="AzureMobileServices">
             <runs />
         </js-module>
     </platform>
 
     <platform name="ios">
+        <js-module src="www/MobileServices.Web.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
         <js-module src="www/MobileServices.Web.js" name="AzureMobileServices">
             <runs />
         </js-module>
     </platform>
 
     <platform name="android">
+        <js-module src="www/MobileServices.Web.Ext.js" name="AzureMobileServices.Ext">
+            <runs />
+        </js-module>
         <js-module src="www/MobileServices.Web.js" name="AzureMobileServices">
             <runs />
         </js-module>
