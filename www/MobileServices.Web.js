@@ -1,10 +1,9 @@
 // ----------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved
-// AzureMobileServices - v1.2.8
+// AzureMobileServices - v1.2.9
 // ----------------------------------------------------------------------------
 
 (function (global) {
-	var $__fileVersion__ = '1.2.8';
     /// <field name="$__modules__">
     /// Map module names to either their cached exports or a function which
     /// will define the module's exports when invoked.
@@ -10646,11 +10645,14 @@
 			},
 			gcm = function (push) {
 			    this._push = push;
+			},
+			    this._push = push;
 			};
 		
 		function Push(mobileServicesClient) {
 		    this._apns = null;
 		    this._gcm = null;
+		    this._wns = null;
 		    this._registrationManager = null;
 		
 		    Object.defineProperties(this, {
@@ -10672,6 +10674,16 @@
 		                    this._gcm = new gcm(this);
 		                }
 		                return this._gcm;
+		            }
+		        },
+		        'wns': {
+		            get: function () {
+		                if (!this._wns) {
+		                    var name = _.format('MS-PushContainer-gcm-{0}', mobileServicesClient.applicationUrl);
+		                    this._registrationManager = new RegistrationManager(mobileServicesClient, 'wns', name);
+		                    this._wns = new wns(this);
+		                }
+		                return this._wns;
 		            }
 		        }
 		    });
@@ -10851,7 +10863,102 @@
 		
 		    return this._push._unregisterAll(deviceToken);
 		};
-		
+		wns.prototype.registerNative = function (deviceToken, tags) {
+		    /// <summary>
+		    /// Register for native notification
+		    /// </summary>
+		    /// <param name="deviceToken">
+		    /// The deviceToken to register
+		    /// </param>
+		    /// <param name="tags" mayBeNull="true">
+		    /// Array containing the tags for this registeration
+		    /// </param>
+		    /// <returns>
+		    /// Promise that will complete when the register is completed
+		    /// </returns>
+
+		    return this._push._register('wns', deviceToken, tags);
+		};
+
+		wns.prototype.registerTemplate = function (deviceToken, name, bodyTemplate, expiryTemplate, tags) {
+		    /// <summary>
+		    /// Register for template notification
+		    /// </summary>
+		    /// <param name="deviceToken">The deviceToken to register</param>
+		    /// <param name="name">The name of the template</param>
+		    /// <param name="bodyTemplate">
+		    /// String or json object defining the body of the template register
+		    /// </param>
+		    /// <param name="expiryTemplate">
+		    /// String defining the datatime or template expresession that evaluates to a date time
+		    /// string to use for the expiry of the message
+		    /// </param>
+		    /// <param name="tags">
+		    /// Array containing the tags for this registeration
+		    /// </param>
+		    /// <returns>
+		    /// Promise that will complete when the unregister is completed
+		    /// </returns>
+
+		    if (_.isNull(tags) && !_.isNull(expiryTemplate) && Array.isArray(expiryTemplate)) {
+		        tags = expiryTemplate;
+		        expiryTemplate = null;
+		    }
+
+		    Validate.notNullOrEmpty(name, 'name');
+		    Validate.notNullOrEmpty(bodyTemplate, 'bodyTemplate');
+
+		    var templateAsString = bodyTemplate,
+		        registration = makeCoreRegistration(deviceToken, "wns", tags);
+
+		    if (!_.isString(templateAsString)) {
+		        templateAsString = JSON.stringify(templateAsString);
+		    }
+
+		    registration.headers = { "X-WNS-Type": "wns/toast" };
+
+		    return this._push._registrationManager.upsertRegistration(registration);
+		};
+
+		wns.prototype.unregisterNative = function () {
+		    /// <summary>
+		    /// Unregister for native notification
+		    /// </summary>
+		    /// <returns>
+		    /// Promise that will complete when the unregister is completed
+		    /// </returns>
+
+		    return this._push._unregister(RegistrationManager.NativeRegistrationName);
+		};
+
+		wns.prototype.unregisterTemplate = function (templateName) {
+		    /// <summary>
+		    /// Unregister for template notification
+		    /// </summary>
+		    /// <param name="templateName">
+		    /// The name of the template
+		    /// </param>
+		    /// <returns>
+		    /// Promise that will complete when the unregister is completed
+		    /// </returns>
+
+		    return this._push._unregister(templateName);
+		};
+
+		wns.prototype.unregisterAll = function (deviceToken) {
+		    /// <summary>
+		    /// DEBUG-ONLY: Unregisters all registrations for the given device token
+		    /// </summary>
+		    /// <param name="deviceToken">
+		    /// The device token
+		    /// </param>
+		    /// <returns>
+		    /// Promise that will complete once all registrations are deleted
+		    /// </returns>
+
+		    return this._push._unregisterAll(deviceToken);
+		};
+
 		gcm.prototype.registerNative = function (deviceId, tags) {
 		    /// <summary>
 		    /// Register for native notification
