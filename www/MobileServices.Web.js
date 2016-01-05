@@ -4,6 +4,7 @@
 // ----------------------------------------------------------------------------
 
 (function (global) {
+	var $__fileVersion__ = '1.2.9';
     /// <field name="$__modules__">
     /// Map module names to either their cached exports or a function which
     /// will define the module's exports when invoked.
@@ -10646,6 +10647,7 @@
 			gcm = function (push) {
 			    this._push = push;
 			},
+            wns = function (push) {
 			    this._push = push;
 			};
 		
