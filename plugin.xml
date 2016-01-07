@@ -11,7 +11,7 @@
     <license>Apache 2.0</license>
     <keywords>azure, services, zumo, cloud</keywords>
     <repo>https://github.com/azure/azure-mobile-services-cordova/</repo>
-    <issue>https://github.com/azure/azure-mobile-services/issues</issue>
+    <issue>https://github.com/azure/azure-mobile-apps-js-client/issues</issue>
 
     <dependency id="cordova-plugin-inappbrowser"/>
 
