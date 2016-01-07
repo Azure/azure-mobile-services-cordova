@@ -4,16 +4,16 @@
  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 -->
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="com.microsoft.azure-mobile-services"
-      version="2.0.0-beta">
-    <name>Windows Azure Mobile Services</name>
-    <description>Exposes JavaScript api to access an Azure Mobile Apps instance</description>
+           id="cordova-plugin-ms-azure-mobile-apps"
+      version="2.0.0-beta3">
+    <name>Azure Mobile Apps</name>
+    <description>This library enables you to develop scalable and secure cordova mobile apps hosted in Microsoft Azure. You can incorporate structured storage, user authentication and push notifications in minutes. For more information, check out http://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop-preview</description>
     <license>Apache 2.0</license>
     <keywords>azure, services, zumo, cloud</keywords>
     <repo>https://github.com/azure/azure-mobile-services-cordova/</repo>
-    <issue>https://github.com/azure/azure-mobile-services/issues</issue>
+    <issue>https://github.com/azure/azure-mobile-apps-js-client/issues</issue>
 
-    <dependency id="org.apache.cordova.inappbrowser"/>
+    <dependency id="cordova-plugin-inappbrowser"/>
 
     <platform name="windows8">
         <js-module src="www/MobileServices.Web.Ext.js" name="AzureMobileServices.Ext">
