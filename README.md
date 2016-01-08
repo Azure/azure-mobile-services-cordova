@@ -7,7 +7,7 @@ To learn more, visit our [Developer Center](http://azure.microsoft.com/en-us/ser
 
 ## Getting Started
 
-If you are new to Mobile Apps, you can get started by following our tutorials for connecting your Mobile Apps cloud backend to [Cordova apps](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/).
+If you are new to Mobile Apps, you can get started by following [Mobile Apps documentation](http://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/).
 
 ### Sample usage ###
 The following code creates a new client object to access the *todolist* mobile apps backend and create a new proxy object for the *TodoItem* table.
