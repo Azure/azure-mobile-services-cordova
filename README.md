@@ -19,7 +19,7 @@ The following code creates a new client object to access the *todolist* mobile a
     var todoTable = mobileAppsClient.getTable('TodoItem');
 
 ### Quickstart ###
-Refer [README.md](https://github.com/Azure/azure-mobile-services-quickstarts/blob/MobileApp/README.md) for detailed quickstart instructions.
+Refer [README.md](https://github.com/Azure/azure-mobile-apps-quickstarts/blob/master/README.md) for detailed quickstart instructions.
 
 ## Need Help?
 
