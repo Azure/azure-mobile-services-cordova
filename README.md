@@ -21,6 +21,9 @@ The following code creates a new client object to access the *todolist* mobile a
 ### Quickstart ###
 Refer [README.md](https://github.com/Azure/azure-mobile-apps-quickstarts/blob/master/README.md) for detailed quickstart instructions.
 
+### Limitations ###
+Ripple environment is not supported in this release. Specifically, server flow based authentication does not work in the Ripple Environment. Testing for other functionality hasn't been performed.
+
 ## Need Help?
 
 Be sure to check out the Mobile Services [Developer Forum](http://social.msdn.microsoft.com/Forums/en-US/azuremobile/) if you are having trouble. The Azure Mobile Apps product team actively monitors the forum and will be more than happy to assist you.
