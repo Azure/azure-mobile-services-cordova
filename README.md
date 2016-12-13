@@ -1,11 +1,19 @@
 Apache Cordova plugin for Azure Mobile Services
 =============================
 
+**DEPRECATED** - Azure Mobile Services has been superseded by Azure App Service Mobile Apps and is scheduled for removal from Azure.  We recommend using Azure Mobile Apps for all new mobile backend deployments.  Read [this announcement](https://azure.microsoft.com/blog/transition-of-azure-mobile-services/) to learn more about the pending deprecation of this service.  
+> 
+> Learn about [migrating your site to Azure App Service](../articles/app-service-mobile/app-service-mobile-migrating-from-mobile-services.md).
+>
+> Get started with Azure Mobile Apps, see the [Azure Mobile Apps documentation center](https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/).
+
+The Cordova plugin for connecting to Azure Mobile Apps resides in the [azure-mobile-apps-cordova-client](http://github.com/Azure/azure-mobile-apps-cordova-client) repository.
+
+## Getting Started
+
 With Microsoft Azure Mobile Services you can add a scalable backend to your connected client applications in minutes.
 
 To learn more, visit our [Developer Center](http://azure.microsoft.com/en-us/develop/mobile/).
-
-## Getting Started
 
 If you are new to Mobile Services, you can get started by following our tutorials for connecting your Mobile Services cloud backend to [Cordova apps](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/),
 
